@@ -1,38 +1,129 @@
-.App {
+/* app.css */
+
+/* General styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header styles */
+header {
+  background-color: #333; /* Darker header */
+  padding: 1rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+header h1 {
+  font-size: 2.5rem;
+  color: #ffcc00; /* Gold color for contrast */
+  margin-bottom: 0.5rem;
+}
+
+/* Message styles */
+.farewell {
+  background-color: #444; /* Slightly lighter background */
+  padding: 2rem; /* Increased padding for better spacing */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: 1rem auto; /* Centered with margin */
+  max-width: 90%; /* Ensure it doesn't stretch too wide */
+  overflow: hidden; /* Ensure no text overflow */
+}
+
+.farewell h2 {
+  font-size: 1.8rem;
+  color: #ffcc00; /* Gold color for the header */
+  margin-bottom: 1rem; /* Space below the heading */
+}
+
+.farewell p {
+  font-size: 1rem;
+  line-height: 1.8;
+  white-space: pre-wrap; /* Preserve white space and new lines */
+}
+
+/* Footer styles */
+footer {
+  background-color: #333; /* Darker footer */
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Farewell effect styles */
+.farewell {
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Confetti animation */
+@keyframes confetti {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+.confetti {
+  position: fixed; /* Fixed position to cover the whole viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  overflow: hidden;
+  z-index: 9999; /* Ensure confetti is on top of other elements */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.confetti > div {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* Make confetti round */
+  animation: confetti 5s linear infinite;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.confetti > div:nth-child(2) {
+  background-color: #1e90ff;
+  animation-delay: 1s;
+}
+
+.confetti > div:nth-child(3) {
+  background-color: #32cd32;
+  animation-delay: 2s;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Gallery container styles */
+.gallery {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.5rem;
+  padding: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Gallery image styles */
+.gallery-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Responsive styles */
+@media (max-width: 600px) {
+  .gallery-img {
+    max-width: 150px;
   }
 }
